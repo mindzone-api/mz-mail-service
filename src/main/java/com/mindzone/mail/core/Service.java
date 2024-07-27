@@ -15,14 +15,14 @@ public class Service {
     public Status sendEmail(DTO dto) {
         try{
             SimpleMailMessage message = new SimpleMailMessage();
-            message.setFrom(dto.getFrom());
+            message.setFrom(System.getenv("MZ_MAIL_USERNAME"));
             message.setTo(dto.getTo());
             message.setSubject(dto.getSubject());
             message.setText(dto.getText());
             emailSender.send(message);
 
             return Status.SENT;
-        } catch (MailException e){
+        } catch (Exception e){
             return Status.ERROR;
         }
     }

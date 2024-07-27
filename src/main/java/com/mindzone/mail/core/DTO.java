@@ -9,13 +9,6 @@ import javax.validation.constraints.NotBlank;
 public class DTO {
 
     @NotBlank
-    private String ref;
-
-    @NotBlank
-    @Email
-    private String from;
-
-    @NotBlank
     @Email
     private String to;
 
